@@ -7,20 +7,41 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <h1>Rock, Paper, Scissors</h1>
-    <div class="choices">
-      <button onclick="playGame(`rock`)">👊</button>
-      <button onclick="playGame(`paper`)">🤚</button>
-      <button onclick="playGame(`scissors`)">✌️</button>
+    <div class="result">
+      <div class="computer">
+        <div class="scoreDisplay">
+          <span id="computerScoreDisplay">0</span>
+        </div>
+        <div id="computerDisplay">AI</div>
+      </div>
+      <div class="player">
+        <div class="scoreDisplay">
+          <span id="playerScoreDisplay">0</span>
+        </div>
+        <div id="playerDisplay">YOU</div>
+      </div>
     </div>
-    <div id="playerDisplay">PLAYER:</div>
-    <div id="computerDisplay">COMPUTER:</div>
-    <div id="resultDisplay"></div>
-    <div class="scoreDisplay">
-      Player Score: <span id="playerScoreDisplay">0</span>
+    <div class="animation">
+      <div class="robot background-image"></div>
+      <div class="human background-image"></div>
     </div>
-    <div class="scoreDisplay">
-      Computer Score: <span id="computerScoreDisplay">0</span>
+    <div class="result-display">
+      <p id="resultDisplay" class="winLoseDraw"></p>
+      <div id="buttonForRes">
+        <button id="nextRound">Next round</button>
+        <button id="restartBtn">Restart</button>
+      </div>
+    </div>
+    <div class="choices" id="buttons">
+      <button onclick="playGame(`rock`)" class="rock background-image"></button>
+      <button
+        onclick="playGame(`paper`)"
+        class="paper background-image"
+      ></button>
+      <button
+        onclick="playGame(`scissors`)"
+        class="scissors background-image"
+      ></button>
     </div>
     <script src="./index.js"></script>
   </body>
