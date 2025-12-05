@@ -17,6 +17,16 @@ function refreshBtn() {
   };
 }
 
+function nextRound() {
+  const nextRoundBtn = document.getElementById("nextRound");
+
+  nextRoundBtn.onclick = function () {
+    buttonForRes.style.display = "none";
+    buttons.style.display = "flex";
+    resultDisplay.textContent = "";
+  };
+}
+
 function playGame(playerChoice) {
   const computerChoice = choices[Math.floor(Math.random() * 3)];
   let result = "";
@@ -37,17 +47,26 @@ function playGame(playerChoice) {
     playerScore++;
     resultDisplay.textContent = result;
     playerScoreDisplay.textContent = playerScore;
+    buttons.style.display = `none`;
+    buttonForRes.style.display = `block`;
+    nextRound();
+    refreshBtn();
+    return;
   } else if (result === "YOU LOST!") {
     computerScore++;
     resultDisplay.textContent = result;
     computerScoreDisplay.textContent = computerScore;
-  } else if (result === "IT'S A DRAW") {
-    resultDisplay.textContent = result;
-  }
-  if (playerScore === 3 || computerScore === 3) {
     buttons.style.display = `none`;
     buttonForRes.style.display = `block`;
+    nextRound();
+    refreshBtn();
+    return;
+  } else if (result === "IT'S A DRAW") {
+    resultDisplay.textContent = result;
+    buttons.style.display = `none`;
+    buttonForRes.style.display = `block`;
+    nextRound();
+    refreshBtn();
     return;
   }
-  refreshBtn();
 }
